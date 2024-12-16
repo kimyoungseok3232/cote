@@ -14,7 +14,5 @@ while c != n:
             t = i*1000 + 666//six*six + j
             c += 1
             if c == n: break
-    if c == n: 
-        print(t)
-        break
     i += 1
+print(t)
