@@ -1,6 +1,20 @@
 n = int(input())
-c = set([666]+[int(str(i)[:j]+'666'+str(i)[j:]) for i in range(min(2800,n)) for j in range(len(str(i))+1)])
-for i in range(100): c.add(int('6660'+str(i)))
-for i in range(10): c.add(int('66600'+str(i)))
-c = sorted(list(c))
-print(c[n-1])
+c, i = 0, 0
+while c != n:
+    if i%10 != 6:
+        t = i*1000 + 666
+        c += 1
+    else:
+        six, tmp = 1, i
+        while tmp%10 == 6:
+            six *= 10
+            tmp //= 10
+        
+        for j in range(six):
+            t = i*1000 + 666//six*six + j
+            c += 1
+            if c == n: break
+    if c == n: 
+        print(t)
+        break
+    i += 1
