@@ -1,6 +1,6 @@
 n = int(input())
 c = set([666])
-for i in range(10000):
+for i in range(3000):
     t = str(i)
     for j in range(len(t)+1):
         c.add(int(t[:j]+'666'+t[j:]))
