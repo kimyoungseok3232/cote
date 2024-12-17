@@ -1,3 +1,3 @@
-import math
-n = int(input())
-print(2*n-2**(math.ceil(math.log2(n))))
+n, m = int(input()), 1
+while n > m : m<<=1
+print(2*n-m)
