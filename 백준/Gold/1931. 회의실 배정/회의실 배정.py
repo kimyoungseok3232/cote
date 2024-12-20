@@ -4,7 +4,9 @@ n = int(input())
 t = [tuple(map(int, input().split())) for _ in range(n)]
 t.sort(key=lambda x: x[0])
 t.sort(key=lambda x: x[1])
-res = [t[0]]
-for i in range(1,n):
-    if res[-1][1] <= t[i][0]: res.append(t[i])
-print(len(res))
+lt, c = 0, 0
+for i in range(n):
+    if lt > t[i][0]: continue
+    c += 1
+    lt = t[i][1]
+print(c)
