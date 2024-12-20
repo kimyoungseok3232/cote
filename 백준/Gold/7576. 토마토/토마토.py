@@ -1,3 +1,5 @@
+import sys
+input = sys.stdin.readline
 n, m = map(int,input().split())
 box = [['-1']*(n+2)]+[['-1']+input().split()+['-1'] for _ in range(m)]+[['-1']*(n+2)]
 s = []
