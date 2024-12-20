@@ -1,5 +1,5 @@
-n = int(input())
-dp = [0] * (n+1)
-for i in range(2, n+1):
-    dp[i] = min(dp[i//3]+i%3, dp[i//2]+i%2)+1
-print(dp[n])
+d = {1:0, 2:1, 3:1}
+def dp(n):
+    if n in d: return d[n]
+    return min(dp(n//3)+n%3, dp(n//2)+n%2) + 1
+print(dp(int(input())))
