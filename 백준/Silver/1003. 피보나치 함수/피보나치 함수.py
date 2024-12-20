@@ -1,6 +1,6 @@
 import sys
 input = sys.stdin.readline
 for _ in range(int(input())):
-    n, a, b = int(input()), 0, 1
+    n, a, b = int(input()), 1, 0
     for j in range(n): a, b = b, a+b
-    print(b-a, a)
+    print(a, b)
