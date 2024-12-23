@@ -1,4 +1,3 @@
-from collections import deque
 for _ in range(int(input())):
     c, n = input().split('R'), input()
     l = eval(input()) + [0]
