@@ -6,6 +6,4 @@ d = {}
 for i in range(1,n+1):
     p = input().strip()
     d[p], d[f'{i}'] = i, p
-for i in range(m):
-    q = input().strip()
-    print(f'{d[q]}\n')
+for i in range(m): print(f'{d[input().strip()]}\n')
