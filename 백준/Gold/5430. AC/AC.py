@@ -1,16 +1,10 @@
 from collections import deque
 for _ in range(int(input())):
-    c, n = input(), input()
-    l = deque(eval(input()))
-    f = False
-    for i in c:
-        if i == 'R': f = not f
-        elif l: 
-            if f: l.pop()
-            else: l.popleft()
-        else: 
-            print('error')
-            break
+    c, n = input().split('R'), input()
+    l = eval(input()) + [0]
+    st, ed = len(''.join(c[::2])), -1-len(''.join(c[1::2]))
+    if st-ed > len(l): print('error')
     else: 
-        if f: l.reverse()
-        print(f'{list(l)}'.replace(' ', ''))
+        l = l[st:ed]
+        if not len(c)%2: l.reverse()
+        print(f'{l}'.replace(' ', ''))
