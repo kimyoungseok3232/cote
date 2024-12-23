@@ -5,5 +5,4 @@ for _ in range(int(input())):
     if st>ed: print('error')
     else: 
         l = l[st:ed]
-        if not len(c)%2: l.reverse()
-        print(f'[{','.join(l)}]')
+        print(f'[{','.join(l if len(c)%2 else reversed(l))}]')
