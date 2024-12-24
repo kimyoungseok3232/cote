@@ -1,6 +1,5 @@
 n = int(input())
 l = [tuple(map(int, input().split())) for _ in range(n)]
-d = {}
 for i in l:
     c = 1
     for j in l:
