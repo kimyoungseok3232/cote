@@ -1,5 +1,4 @@
-n = int(input())
-l = [tuple(map(int, input().split())) for _ in range(n)]
+l = [tuple(map(int, input().split())) for _ in range(int(input()))]
 for i in l:
     c = 1
     for j in l:
