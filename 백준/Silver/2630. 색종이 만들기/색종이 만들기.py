@@ -1,3 +1,5 @@
+import sys
+input = sys.stdin.readline
 def dfs(map, c):
     l, s = len(map), sum(sum(row) for row in map)
     if s == l*l: c[1] += 1
