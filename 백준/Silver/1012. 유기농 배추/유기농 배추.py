@@ -2,7 +2,7 @@ import sys
 sys.setrecursionlimit(10**6)
 input = sys.stdin.readline
 def dfs(x,y,d):
-    if (x,y) in d: del d[(x,y)]
+    del d[(x,y)]
     for dx, dy in [(0,1),(0,-1),(1,0),(-1,0)]:
         nx, ny = x+dx, y+dy
         if (nx, ny) in d: dfs(nx,ny,d)
