@@ -7,12 +7,10 @@ for i in range(int(input())):
     r = 1
     v = q.index(max(q))
     m = (m-v)%len(q)
-    q.rotate(-v)
-    q.popleft()
     while m: 
+        q.rotate(-v)
+        q.popleft()
         r += 1
         v = q.index(max(q))
         m = (m-1-v)%len(q)
-        q.rotate(-v)
-        q.popleft()
     print(r)
