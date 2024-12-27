@@ -2,7 +2,7 @@ import sys
 import math
 N, P, V = map(int, sys.stdin.readline().rstrip().split())
 min_value = math.inf
-pin_list = [N]
+num = N
 yet_dict = {}
 i = -1
 if N == 1:
@@ -17,9 +17,10 @@ else:
                 break
             if min_value > value:
                 min_value = value
-            pin_list.append(value)
-        while pin_list:
-            a = pin_list.pop()
+            num = value
+        if num:
+            a = num
+            num = 0
             tmp1 = 0
             tmp3 = 0
             while 1:
@@ -30,10 +31,10 @@ else:
                         break
                     continue
                 tmp3 = tmp2
-                key = i + tmp2 * P + V
                 value = math.ceil(a/tmp2)
                 if min_value < value:
                     continue
+                key = i + tmp2 * P + V
                 if key in yet_dict:
                     if yet_dict[key] > value:
                         yet_dict[key] = value
