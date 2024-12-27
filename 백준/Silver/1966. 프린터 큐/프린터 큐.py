@@ -1,4 +1,6 @@
+import sys
 from collections import deque
+input = sys.stdin.readline
 for i in range(int(input())):
     n, m = map(int, input().split())
     q = deque(map(int, input().split()))
