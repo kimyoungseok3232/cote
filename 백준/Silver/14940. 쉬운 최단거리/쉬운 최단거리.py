@@ -14,7 +14,7 @@ while nn:
         for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
             nx, ny = x + dx, y + dy
             if nx < 0 or ny < 0 or nx > n-1 or ny > m-1: continue
-            if r[nx][ny] == '-1' and l[nx][ny] == '1':
+            if r[nx][ny] == '-1':
                 r[nx][ny] = f'{c}'
                 tn.append((nx, ny))
   
