@@ -1,20 +1,17 @@
 import sys
 input = sys.stdin.readline
 n, m = map(int, input().split())
-l = [set() for i in range(n+1)]
-v = set(i for i in range(1, n+1))
+l = {i+1:set() for i in range(n)}
 for i in range(m):
     a, b = map(int, input().split())
     l[a].add(b)
     l[b].add(a)
 c = 0
-while v:
-    nn = [v.pop()]
-    while nn:
-        x = nn.pop()
-        for y in l[x]:
-            if y in v:
-                v.remove(y)
-                nn.append(y)
+while l:
+    for i in l: break
+    q = l.pop(i)
+    while q:
+        x = q.pop()
+        if x in l: q |= l.pop(x)
     c += 1
 print(c)
