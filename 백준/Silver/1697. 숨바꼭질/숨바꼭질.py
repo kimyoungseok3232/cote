@@ -6,7 +6,7 @@ while q:
     t, c = q.popleft()
     if t == k: break
     for i in [t*2, t+1, t-1]:
-        if 0 <= i <= 100000 and v[i]:
+        if -1 < i < 100001 and v[i]:
             v[i] = False
             q.append((i, c+1))
 print(c)
