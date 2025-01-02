@@ -15,6 +15,8 @@ for i in range(m):
     l[b].add(a)
 c = 0
 while l:
-    dfs(list(l.keys())[0])
+    for i in l:
+        dfs(i)
+        break
     c += 1
 print(c)
