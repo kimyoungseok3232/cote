@@ -7,7 +7,7 @@ for i in range(n-1):
     l[a].append(b)
     l[b].append(a)
 t = [1]
-v = set(t)
+v = {1:0}
 p = [0] * (n+1)
 while t:
     x = t.pop()
@@ -16,5 +16,5 @@ while t:
         if y in v: continue
         p[y] = x
         t.append(y)
-        v.add(y)
+        v[y] = 0
 print(*p[2:])
