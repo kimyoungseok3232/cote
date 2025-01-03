@@ -1,11 +1,11 @@
 import sys
 input = sys.stdin.readline
 n = int(input())
-l = [set() for _ in range(n+1)]
+l = [[] for _ in range(n+1)]
 for i in range(n-1):
     a, b = map(int, input().split())
-    l[a].add(b)
-    l[b].add(a)
+    l[a].append(b)
+    l[b].append(a)
 t = [1]
 v = set(t)
 p = [0] * (n+1)
