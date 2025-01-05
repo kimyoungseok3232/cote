@@ -1,7 +1,7 @@
 import sys
 input = sys.stdin.readline
-v = [0, 0, 0]
+mr, mg, mb = 0, 0, 0
 for _ in range(int(input())):
     r, g, b = map(int, input().split())
-    v[0], v[1], v[2] = min(v[1], v[2]) + r, min(v[0], v[2]) + g, min(v[0], v[1]) + b
-print(min(v))
+    mr, mg, mb = min(mg, mb) + r, min(mr, mb) + g, min(mr, mg) + b
+print(min(mr, mg, mb))
