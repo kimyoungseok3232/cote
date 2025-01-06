@@ -1,16 +1,15 @@
-def search(node, order, res):
-    t = [node] + tree[node]
-    t = [t[order[0]],t[order[1]],t[order[2]]]
+def s(n, o, r):
+    t = [n] + d[n]
+    t = [t[o[0]],t[o[1]],t[o[2]]]
     for i in t:
         if i == '.': continue
-        if i == node: res.append(i)
-        else: search(i, order, res)
-    return res
-n = int(input())
-tree = {}
-for _ in range(n):
-    parent, left, right = input().split()
-    tree[parent] = [left, right]
-print(''.join(search('A', (0,1,2), [])))
-print(''.join(search('A', (1,0,2), [])))
-print(''.join(search('A', (1,2,0), [])))
+        if i == n: r.append(i)
+        else: s(i, o, r)
+    return r
+d = {}
+for _ in range(int(input())):
+    p, l, r = input().split()
+    d[p] = [l, r]
+print(''.join(s('A', (0,1,2), [])))
+print(''.join(s('A', (1,0,2), [])))
+print(''.join(s('A', (1,2,0), [])))
