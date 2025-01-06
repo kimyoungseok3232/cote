@@ -1,39 +1,16 @@
+def search(node, order, res):
+    t = [node] + tree[node]
+    t = [t[order[0]],t[order[1]],t[order[2]]]
+    for i in t:
+        if i == '.': continue
+        if i == node: res.append(i)
+        else: search(i, order, res)
+    return res
 n = int(input())
 tree = {}
 for _ in range(n):
     parent, left, right = input().split()
     tree[parent] = [left, right]
-
-preorder = []
-tmp = ['A']
-while tmp:
-    node = tmp.pop()
-    if (t:=tree[node][1]) != '.': tmp.append(t)
-    if (t:=tree[node][0]) != '.': tmp.append(t)
-    preorder.append(node)
-print(''.join(preorder))
-
-inorder = []
-visited = set()
-tmp = ['A']
-while tmp:
-    if (t:=tree[tmp[-1]][0]) != '.' and t not in visited: 
-        tmp.append(t)
-        visited.add(t)
-    else: 
-        node = tmp.pop()
-        inorder.append(node)
-        if (t:=tree[node][1]) != '.': tmp.append(t)
-print(''.join(inorder))
-
-postorder = []
-tmp = ['A']
-while tmp:
-    left, right = tree[tmp[-1]]
-    tree[tmp[-1]] = ['.', '.']
-    if left == right: 
-        postorder.append(tmp.pop())
-        continue
-    if right != '.': tmp.append(right)
-    if left != '.': tmp.append(left)
-print(''.join(postorder))
+print(''.join(search('A', (0,1,2), [])))
+print(''.join(search('A', (1,0,2), [])))
+print(''.join(search('A', (1,2,0), [])))
