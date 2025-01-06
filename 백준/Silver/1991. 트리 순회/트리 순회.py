@@ -1,10 +1,8 @@
 def s(n, o, r):
     t = [n] + d[n]
-    t = [t[o[0]],t[o[1]],t[o[2]]]
-    for i in t:
-        if i == '.': continue
+    for i in [t[o[0]],t[o[1]],t[o[2]]]:
         if i == n: r.append(i)
-        else: s(i, o, r)
+        elif i != '.': s(i, o, r)
     return r
 d = {}
 for _ in range(int(input())):
