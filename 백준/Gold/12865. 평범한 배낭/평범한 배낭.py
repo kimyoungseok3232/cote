@@ -4,9 +4,10 @@ n, capacity = map(int, input().split())
 dp = {0:0}
 for _ in range(n):
     w, v = map(int, input().split())
-    for weight, value in list(dp.items()):
+    tmp = {}
+    for weight, value in dp.items():
         nw, nv = weight+w, value+v
         if nw <= capacity:
-            if nw in dp and dp[nw] < nv: dp[nw] = nv
-            elif nw not in dp: dp[nw] = nv
+            if dp.get(nw, 0) < nv: tmp[nw] = nv
+    dp.update(tmp)
 print(max(dp.values()))
