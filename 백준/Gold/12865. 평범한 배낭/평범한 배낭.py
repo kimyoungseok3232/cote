@@ -7,7 +7,7 @@ for _ in range(n):
     tmp = {}
     for weight, value in dp.items():
         nw, nv = weight+w, value+v
-        if nw <= capacity:
-            if dp.get(nw, 0) < nv: tmp[nw] = nv
+        if nw > capacity: continue
+        if dp.get(nw, 0) < nv: tmp[nw] = nv
     dp.update(tmp)
 print(max(dp.values()))
