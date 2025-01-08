@@ -2,12 +2,12 @@ import sys
 input = sys.stdin.readline
 n, capacity = map(int, input().split())
 dp = {0:0}
-for _ in range(n):
-    w, v = map(int, input().split())
+wvlist = [tuple(map(int, input().split())) for _ in range(n)]
+wvlist.sort(reverse=True)
+for w, v in wvlist:
     tmp = {}
-    for weight, value in dp.items():
+    for value, weight in dp.items():
         nw, nv = weight+w, value+v
-        if nw > capacity: continue
-        if dp.get(nw, 0) < nv: tmp[nw] = nv
+        if dp.get(nv, capacity+1) > nw: tmp[nv] = nw
     dp.update(tmp)
-print(max(dp.values()))
+print(max(dp))
