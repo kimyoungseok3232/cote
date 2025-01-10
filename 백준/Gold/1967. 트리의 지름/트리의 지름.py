@@ -7,31 +7,21 @@ for _ in range(n-1):
     graph[parent].append((child, weight))
     graph[child].append((parent, weight))
 
-start = 1
-distance = [-1] * (n+1)
-distance[start] = 0
-q = [start]
-while q:
-    tq = []
+def maxdist(start):
+    distance = [-1] * (n+1)
+    distance[start] = 0
+    q = [start]
     while q:
-        node = q.pop()
-        for neighbor, weight in graph[node]:
-            if distance[neighbor] == -1:
-                distance[neighbor] = distance[node] + weight
-                tq.append(neighbor)
-    q = tq
+        tq = []
+        while q:
+            node = q.pop()
+            for neighbor, weight in graph[node]:
+                if distance[neighbor] == -1:
+                    distance[neighbor] = distance[node] + weight
+                    tq.append(neighbor)
+        q = tq
+    max_dist = max(distance)
+    max_idx = distance.index(max_dist)
+    return max_dist, max_idx
 
-start = distance.index(max(distance))
-distance = [-1] * (n+1)
-distance[start] = 0
-q = [start]
-while q:
-    tq = []
-    while q:
-        node = q.pop()
-        for neighbor, weight in graph[node]:
-            if distance[neighbor] == -1:
-                distance[neighbor] = distance[node] + weight
-                tq.append(neighbor)
-    q = tq
-print(max(distance))
+print(maxdist(maxdist(1)[1])[0])
