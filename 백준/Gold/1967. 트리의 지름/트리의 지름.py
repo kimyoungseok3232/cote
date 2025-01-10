@@ -12,14 +12,11 @@ def maxdist(start):
     distance[start] = 0
     q = [start]
     while q:
-        tq = []
-        while q:
-            node = q.pop()
-            for neighbor, weight in graph[node]:
-                if distance[neighbor] == -1:
-                    distance[neighbor] = distance[node] + weight
-                    tq.append(neighbor)
-        q = tq
+        node = q.pop()
+        for neighbor, weight in graph[node]:
+            if distance[neighbor] == -1:
+                distance[neighbor] = distance[node] + weight
+                q.append(neighbor)
     max_dist = max(distance)
     max_idx = distance.index(max_dist)
     return max_dist, max_idx
