@@ -1,14 +1,18 @@
-n = int(input())
-res = [0]
-row = [0] * n
-def lay_queen(num_queen):
-    if num_queen == n: res[0] += 1
-    else:
-        for i in range(n):
-            for j in range(num_queen):
-                if i == row[j] or abs(i-row[j]) == abs(num_queen-j): break
-            else:
-                row[num_queen] = i
-                lay_queen(num_queen+1)
-lay_queen(0)
-print(res[0])
+def n_queen(n):
+    def solve(row, cols, diags1, diags2):
+        if row == n: return 1
+        count = 0
+        available = ((1 << n) - 1) & ~(cols | diags1 | diags2)
+        while available:
+            pos = available & -available
+            available -= pos
+            count += solve(
+                row + 1,
+                cols | pos,
+                (diags1 | pos) << 1,
+                (diags2 | pos) >> 1
+            )
+        return count
+    return solve(0, 0, 0, 0)
+if __name__ == "__main__":
+    print(n_queen(int(input())))
