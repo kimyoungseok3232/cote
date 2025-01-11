@@ -14,5 +14,4 @@ def n_queen(n):
             )
         return count
     return solve(0, 0, 0, 0)
-if __name__ == "__main__":
-    print(n_queen(int(input())))
+print(n_queen(int(input())))
