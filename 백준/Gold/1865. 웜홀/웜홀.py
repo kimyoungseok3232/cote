@@ -9,17 +9,19 @@ def find_minus_loop(node, edges, dist):
                     return 'YES'
     return 'NO'
 
-for i in range(int(input())):
-    node, edge, hole = map(int, input().split())
-    edges = []
-    dist = [10e8] * (node+1)
-    dist[1] = 0
-    for _ in range(edge):
-        s, e, t = map(int, input().split())
-        edges.append((s,e,t))
-        edges.append((e,s,t))
-    for _ in range(hole):
-        s, e, t = map(int, input().split())
-        edges.append((s,e,-t))
-    
-    print(find_minus_loop(node, edges, dist))
+def solve(n):
+    for i in range(n):
+        node, edge, hole = map(int, input().split())
+        edges = []
+        dist = [10e8] * (node+1)
+        dist[1] = 0
+        for _ in range(edge):
+            s, e, t = map(int, input().split())
+            edges.append((s,e,t))
+            edges.append((e,s,t))
+        for _ in range(hole):
+            s, e, t = map(int, input().split())
+            edges.append((s,e,-t))
+        
+        print(find_minus_loop(node, edges, dist))
+solve(int(input()))
