@@ -1,8 +1,5 @@
 import sys
-while (n:=input())!='0':
-    l = len(n)//2
-    front = sys.intern(n[:l])
-    back = sys.intern(n[::-1][:l])
-    if front == back:
-        print('yes')
-    else:print('no')
+l=open(0).readlines()
+for i in range(len(l)-1):
+	a=l[i].replace("\n","")
+	print("yes" if sys.intern(a)==sys.intern(a[::-1]) else "no")
