@@ -1,2 +1,2 @@
 def solution(myString, pat):
-    return 1 if myString.lower().count(pat.lower()) else 0
+    return 1 if pat.lower() in myString.lower() else 0
