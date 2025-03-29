@@ -1,13 +1,13 @@
-def dfs(target, val, numbers, now, ed, answer):
-    if now == ed:
-        if val == target: answer.append('C')
+answer = 0
+
+def dfs(target, val, numbers, now):
+    global answer
+    if now == len(numbers):
+        if val == target: answer += 1
         return 0
-    dfs(target, val+numbers[now], numbers, now+1, ed, answer)
-    dfs(target, val-numbers[now], numbers, now+1, ed, answer)
+    dfs(target, val+numbers[now], numbers, now+1)
+    dfs(target, val-numbers[now], numbers, now+1)
     
 def solution(numbers, target):
-    answer = []
-    
-    dfs(target, 0, numbers, 0, len(numbers), answer)
-    
-    return len(answer)
+    dfs(target, 0, numbers, 0)
+    return answer
