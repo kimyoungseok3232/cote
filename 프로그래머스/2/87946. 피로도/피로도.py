@@ -7,5 +7,4 @@ def backtrack(dungeons, tired, visited = set(), answer = 0):
         visited.remove(idx)
     return tmp
 def solution(k, dungeons):
-    answer = backtrack(dungeons, k)
-    return answer
+    return backtrack(dungeons, k)
