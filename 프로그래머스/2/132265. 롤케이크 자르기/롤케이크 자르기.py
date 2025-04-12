@@ -1,14 +1,14 @@
 def solution(topping):
     answer = 0
-    tmp = []
+    dic = {}
+    for top in topping:
+        dic[top] = dic.get(top, 0) + 1
     visited = set()
+    
     for top in topping:
         visited.add(top)
-        tmp.append(len(visited))
-    tmp.pop()
-    visited = set()
-    for idx, top in enumerate(topping[::-1]):
-        visited.add(top)
-        if tmp[-1-idx] == len(visited): answer += 1
-        elif tmp[-1-idx] < len(visited): break 
+        dic[top] -= 1
+        if dic[top] == 0: dic.pop(top)
+        if len(dic) == len(visited): answer+=1
+    
     return answer
