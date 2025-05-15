@@ -2,18 +2,19 @@
 
 def solution(queue1, queue2):
     answer = 0
-    q1, q2 = sum(queue1), sum(queue2)
-    p1, p2 = 0, len(queue1)
-    queue = queue1+queue2
-    while q1 != q2:
-        if p1 == len(queue) or p2 == len(queue)+len(queue): break
-        if q1 > q2:
-            q1 -= queue[p1]
-            q2 += queue[p1]
+    diff = sum(queue1) - sum(queue2)
+    p1, p2 = 0, 0
+    while diff != 0:
+        if p1 == len(queue1)+len(queue2) or p2 == len(queue1)+len(queue2): break
+        if diff > 0:
+            if p1 < len(queue1): val = queue1[p1]
+            else: val = queue2[p1%len(queue1)]
+            diff -= 2*val
             p1 += 1
         else:
-            q1 += queue[p2%len(queue)]
-            q2 -= queue[p2%len(queue)]
+            if p2 < len(queue1): val = queue2[p2]
+            else: val = queue1[p2%len(queue2)]
+            diff += 2*val
             p2 += 1
         answer += 1
     else: return answer
