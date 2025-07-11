@@ -1,16 +1,13 @@
 def solution(k, room_number):
-    answer = []
-    visited = {}
-    for n in room_number:
-        if n not in visited:
-            visited[n] = [n]
-        else:
-            while n in visited:
-                tmp = n
-                n = visited[n][0] + 1
-                if n in visited:
-                    visited[tmp][0] = visited[n][0]
-            visited[n] = visited[n-1]
-            visited[n][0] = n
-        answer.append(n)
-    return answer
+    room_dic = {}
+    ret = []
+    for i in room_number:
+        n = i
+        visit = [n]
+        while n in room_dic:
+            n = room_dic[n]
+            visit.append(n)
+        ret.append(n)
+        for j in visit:
+            room_dic[j] = n+1
+    return ret
